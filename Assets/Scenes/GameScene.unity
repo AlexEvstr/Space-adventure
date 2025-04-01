@@ -734,6 +734,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1510263849}
   - component: {fileID: 1510263850}
+  - component: {fileID: 1510263851}
   m_Layer: 0
   m_Name: controller
   m_TagString: Untagged
@@ -770,6 +771,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerDice: {fileID: 8499874526293525641}
   throwButton: {fileID: 2011484487}
+--- !u!114 &1510263851
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1510263847}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0fd394afe79941ef9d1bc1775c5f458, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1671047925
 GameObject:
   m_ObjectHideFlags: 0
