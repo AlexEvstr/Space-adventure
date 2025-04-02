@@ -6,8 +6,7 @@ public class DiceThrow : MonoBehaviour
 {
     [SerializeField] private Transform playerDice;
     private Rigidbody playerRb;
-    [SerializeField] private Button throwButton;
-    [SerializeField] private PlayerPieceController _playerPieceController;
+    [SerializeField] private Button throwButton;    
     private GameManager gameManager;
 
 

@@ -14,6 +14,11 @@ public class GameManager : MonoBehaviour
         public PlayerPieceController controller;
         public bool hasFinished = false;
     }
+
+    [SerializeField] private GameObject[] maps;
+    private GameObject activeMap;
+    private BoardManager board;
+
     private PlayerData winner = null;
     public Image avatarImage; // куда показываем спрайт игрока
     public Text nameText;     // куда выводим имя игрока
@@ -28,14 +33,34 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        int mapIndex = PlayerPrefs.GetInt("ChoosenMap", 0);
+
+        // Отключаем все карты
+        foreach (var map in maps)
+            map.SetActive(false);
+
+        // Включаем выбранную
+        activeMap = maps[mapIndex];
+        activeMap.SetActive(true);
+
+        // Получаем ссылку на BoardManager этой карты
+        board = activeMap.GetComponent<BoardManager>();
         LoadPlayers();
     }
 
 
     private void LoadPlayers()
     {
+        PlayerPieceController[] foundControllers = activeMap.GetComponentsInChildren<PlayerPieceController>(true);
+
         for (int i = 0; i < 4; i++)
         {
+            var controller = foundControllers[i];
+            controller.board = board;
+
+            GameObject piece = controller.gameObject;
+            piece.SetActive(true);
+
             string nameKey = $"PlayerName{i}";
             string spriteKey = $"PlayerSpriteIndex{i}";
 
@@ -43,10 +68,6 @@ public class GameManager : MonoBehaviour
             {
                 string playerName = PlayerPrefs.GetString(nameKey);
                 int spriteIndex = PlayerPrefs.GetInt(spriteKey);
-
-                GameObject piece = playerPieces[i];
-                piece.SetActive(true);
-                var controller = piece.GetComponent<PlayerPieceController>();
 
                 var img = piece.GetComponent<Image>(); // если UI
                 if (img != null && spriteIndex >= 0 && spriteIndex < pieceSprites.Length)
@@ -63,7 +84,7 @@ public class GameManager : MonoBehaviour
             }
             else
             {
-                playerPieces[i].SetActive(false);
+                piece.SetActive(false);
             }
         }
 
