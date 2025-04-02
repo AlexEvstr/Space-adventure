@@ -35,9 +35,11 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Text _winnerNameText;
     [SerializeField] private GameObject _winPopup;
     private WindowManager _windowManager;
+    private AudioController _audioController;
 
     private void Start()
     {
+        _audioController = GetComponent<AudioController>();
         _windowManager = GetComponent<WindowManager>();
         int mapIndex = PlayerPrefs.GetInt("ChoosenMap", 0);
         _bgImage.sprite = backgrounds[mapIndex];
@@ -160,6 +162,8 @@ public class GameManager : MonoBehaviour
             PlayerPrefs.SetInt("GamesPlayed", gamesPlayed);
             _winnerNameText.text = currentPlayer.playerName;
             _windowManager.OpenWindow(_winPopup);
+            _audioController.MuteMusic();
+            _audioController.PlayWinSound();
         }
         else if (victoryMode == 1)
         {
@@ -183,6 +187,8 @@ public class GameManager : MonoBehaviour
                 PlayerPrefs.SetInt("GamesPlayed", gamesPlayed);
                 _winnerNameText.text = winner.playerName;
                 _windowManager.OpenWindow(_winPopup);
+                _audioController.MuteMusic();
+                _audioController.PlayWinSound();
             }
         }
     }

@@ -8,6 +8,7 @@ public class PlayerPieceController : MonoBehaviour
     private int currentTileIndex = -1;
     private RectTransform pieceRect;
     public int CurrentTileIndex => currentTileIndex;
+    [SerializeField] private AudioController _audioController;
 
     private void Awake()
     {
@@ -23,6 +24,7 @@ public class PlayerPieceController : MonoBehaviour
     {
         for (int i = 0; i < steps; i++)
         {
+            _audioController.PlayMoveSound();
             int nextIndex = currentTileIndex + 1;
 
             if (nextIndex >= board.tiles.Count) yield break;

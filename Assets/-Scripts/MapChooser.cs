@@ -22,7 +22,7 @@ public class MapChooser : MonoBehaviour
             _maps[1].GetComponent<Button>().interactable = false;
         }
 
-        if (gamesPlayed >= 2)
+        if (gamesPlayed >= 3)
         {
             _maps[2].transform.GetChild(0).gameObject.SetActive(false);
             _maps[2].GetComponent<Button>().interactable = true;
