@@ -7,6 +7,9 @@ public class DiceThrow : MonoBehaviour
     [SerializeField] private Transform playerDice;
     private Rigidbody playerRb;
     [SerializeField] private Button throwButton;
+    [SerializeField] private PlayerPieceController _playerPieceController;
+    private GameManager gameManager;
+
 
     private bool isPlayerThrown = false;
     private int playerResult = 0;
@@ -14,14 +17,19 @@ public class DiceThrow : MonoBehaviour
     private Vector3 playerStartPos;
     private Quaternion playerStartRot;
 
+    [SerializeField] private GameObject[] _diceAndFloor;
+
     void Start()
     {
         Screen.orientation = ScreenOrientation.LandscapeLeft;
-
+        gameManager = GetComponent<GameManager>();
         playerRb = playerDice.GetComponent<Rigidbody>();
         playerStartPos = playerDice.position;
         playerStartRot = playerDice.rotation;
-
+        foreach (var item in _diceAndFloor)
+        {
+            item.SetActive(false);
+        }
         throwButton.onClick.AddListener(OnThrowButtonClicked);
     }
 
@@ -31,16 +39,30 @@ public class DiceThrow : MonoBehaviour
         {
             playerResult = DetermineTopFace(playerDice);
             Debug.Log("Игрок выбросил: " + playerResult);
-            StartCoroutine(ResetDiceAfterDelay(2f));
+            if (playerResult == 0)
+            {
+                ThrowDice(playerRb);
+                isPlayerThrown = true;
+                throwButton.interactable = false;
+            }
+
+            gameManager.OnDiceResult(playerResult);
+
+            StartCoroutine(ResetDiceAfterDelay(0.5f));
         }
+
     }
 
     public void OnThrowButtonClicked()
     {
         if (isPlayerThrown) return;
-
+        foreach (var item in _diceAndFloor)
+        {
+            item.SetActive(true);
+        }
         ThrowDice(playerRb);
         isPlayerThrown = true;
+        throwButton.interactable = false;
     }
 
     void ThrowDice(Rigidbody rb)
@@ -81,6 +103,10 @@ public class DiceThrow : MonoBehaviour
 
     IEnumerator ResetDiceAfterDelay(float delay)
     {
+        foreach (var item in _diceAndFloor)
+        {
+            item.SetActive(false);
+        }
         yield return new WaitForSeconds(delay);
 
         playerDice.position = playerStartPos;
