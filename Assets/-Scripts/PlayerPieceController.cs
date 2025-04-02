@@ -8,6 +8,7 @@ public class PlayerPieceController : MonoBehaviour
 
     private int currentTileIndex = -1;
     private RectTransform pieceRect;
+    public int CurrentTileIndex => currentTileIndex;
 
     private void Awake()
     {

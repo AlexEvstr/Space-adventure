@@ -38,13 +38,8 @@ public class DiceThrow : MonoBehaviour
         if (isPlayerThrown && playerRb.IsSleeping() && playerResult == 0)
         {
             playerResult = DetermineTopFace(playerDice);
-            Debug.Log("Игрок выбросил: " + playerResult);
-            if (playerResult == 0)
-            {
-                ThrowDice(playerRb);
-                isPlayerThrown = true;
-                throwButton.interactable = false;
-            }
+            //Debug.Log("Игрок выбросил: " + playerResult);
+            if (playerResult == 0) playerResult = 1;
 
             gameManager.OnDiceResult(playerResult);
 
@@ -67,7 +62,7 @@ public class DiceThrow : MonoBehaviour
 
     void ThrowDice(Rigidbody rb)
     {
-        Debug.Log("throw!");
+        //Debug.Log("throw!");
         rb.velocity = Vector3.zero;
         rb.angularVelocity = Vector3.zero;
 
