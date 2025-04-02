@@ -24,7 +24,7 @@ public class GameManager : MonoBehaviour
 
     private int currentPlayerIndex = 0;
     [SerializeField] private Button throwButton;
-    [SerializeField] private Sprite[] pieceSprites;
+    [SerializeField] private Sprite[] pieceSprites;   
 
     private void Start()
     {
@@ -96,7 +96,7 @@ public class GameManager : MonoBehaviour
 
         throwButton.interactable = true;
 
-        if (current.controller.CurrentTileIndex == current.controller.tiles.Length - 1 && !current.hasFinished)
+        if (current.controller.CurrentTileIndex == current.controller.board.tiles.Count - 1 && !current.hasFinished)
         {
             CheckVictory(current);
         }
@@ -128,6 +128,9 @@ public class GameManager : MonoBehaviour
             // Побеждает первый, кто дошёл
             Debug.Log($"🏆 Победитель: {currentPlayer.playerName}");
             // Здесь можешь вызвать окно победы
+            int gamesPlayed = PlayerPrefs.GetInt("GamesPlayed", 0);
+            gamesPlayed++;
+            PlayerPrefs.SetInt("GamesPlayed", gamesPlayed);
         }
         else if (victoryMode == 1)
         {
@@ -145,6 +148,10 @@ public class GameManager : MonoBehaviour
             {
                 Debug.Log($"🏁 Игра окончена. Победитель: {winner.playerName}");
                 // Здесь можешь вызвать экран победы или перейти в меню
+
+                int gamesPlayed = PlayerPrefs.GetInt("GamesPlayed", 0);
+                gamesPlayed++;
+                PlayerPrefs.SetInt("GamesPlayed", gamesPlayed);
             }
         }
     }

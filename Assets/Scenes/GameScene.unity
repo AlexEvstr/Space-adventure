@@ -211,42 +211,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6adb56b3c85d48a5b467a6cbcae0732, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tiles:
-  - {fileID: 966620018}
-  - {fileID: 1079155346}
-  - {fileID: 461861417}
-  - {fileID: 1310794130}
-  - {fileID: 715513839}
-  - {fileID: 1749683249}
-  - {fileID: 1598185642}
-  - {fileID: 213719985}
-  - {fileID: 1614037813}
-  - {fileID: 1664782506}
-  - {fileID: 589174361}
-  - {fileID: 229386548}
-  - {fileID: 1738314281}
-  - {fileID: 1515411173}
-  - {fileID: 1879819005}
-  - {fileID: 1551291798}
-  - {fileID: 1717265724}
-  - {fileID: 561082466}
-  - {fileID: 1748540715}
-  - {fileID: 1959386063}
-  - {fileID: 781007881}
-  - {fileID: 1694859437}
-  - {fileID: 130246105}
-  - {fileID: 389653740}
-  - {fileID: 228117368}
-  - {fileID: 870984142}
-  - {fileID: 518115694}
-  - {fileID: 1041536491}
-  - {fileID: 1682657520}
-  - {fileID: 1401931058}
-  - {fileID: 1008967364}
-  - {fileID: 1625775185}
-  - {fileID: 416670932}
-  - {fileID: 771250026}
   moveSpeed: 600
+  board: {fileID: 1510263854}
 --- !u!1 &130246104
 GameObject:
   m_ObjectHideFlags: 0
@@ -2597,42 +2563,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6adb56b3c85d48a5b467a6cbcae0732, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tiles:
-  - {fileID: 966620018}
-  - {fileID: 1079155346}
-  - {fileID: 461861417}
-  - {fileID: 1310794130}
-  - {fileID: 715513839}
-  - {fileID: 1749683249}
-  - {fileID: 1598185642}
-  - {fileID: 213719985}
-  - {fileID: 1614037813}
-  - {fileID: 1664782506}
-  - {fileID: 589174361}
-  - {fileID: 229386548}
-  - {fileID: 1738314281}
-  - {fileID: 1515411173}
-  - {fileID: 1879819005}
-  - {fileID: 1551291798}
-  - {fileID: 1717265724}
-  - {fileID: 561082466}
-  - {fileID: 1748540715}
-  - {fileID: 1959386063}
-  - {fileID: 781007881}
-  - {fileID: 1694859437}
-  - {fileID: 130246105}
-  - {fileID: 389653740}
-  - {fileID: 228117368}
-  - {fileID: 870984142}
-  - {fileID: 518115694}
-  - {fileID: 1041536491}
-  - {fileID: 1682657520}
-  - {fileID: 1401931058}
-  - {fileID: 1008967364}
-  - {fileID: 1625775185}
-  - {fileID: 416670932}
-  - {fileID: 771250026}
   moveSpeed: 600
+  board: {fileID: 1510263854}
 --- !u!1 &1492242309
 GameObject:
   m_ObjectHideFlags: 0
@@ -2740,6 +2672,7 @@ GameObject:
   - component: {fileID: 1510263851}
   - component: {fileID: 1510263852}
   - component: {fileID: 1510263853}
+  - component: {fileID: 1510263854}
   m_Layer: 0
   m_Name: controller
   m_TagString: Untagged
@@ -2836,6 +2769,56 @@ MonoBehaviour:
   - {fileID: 21300000, guid: cb1899168317d42d886b60b56e12ef0d, type: 3}
   - {fileID: 21300000, guid: 21ff1a22318694edbb8273e33a3d0eef, type: 3}
   - {fileID: 21300000, guid: c4cb08f63ec2947bf8b1af6f265af79f, type: 3}
+--- !u!114 &1510263854
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1510263847}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfea56c7c9b5844c9b41942549fbeb34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tiles:
+  - {fileID: 966620018}
+  - {fileID: 1079155346}
+  - {fileID: 461861417}
+  - {fileID: 1310794130}
+  - {fileID: 715513839}
+  - {fileID: 1749683249}
+  - {fileID: 1598185642}
+  - {fileID: 213719985}
+  - {fileID: 1614037813}
+  - {fileID: 1664782506}
+  - {fileID: 589174361}
+  - {fileID: 229386548}
+  - {fileID: 1738314281}
+  - {fileID: 1515411173}
+  - {fileID: 1879819005}
+  - {fileID: 1551291798}
+  - {fileID: 1717265724}
+  - {fileID: 561082466}
+  - {fileID: 1748540715}
+  - {fileID: 1959386063}
+  - {fileID: 781007881}
+  - {fileID: 1694859437}
+  - {fileID: 130246105}
+  - {fileID: 389653740}
+  - {fileID: 228117368}
+  - {fileID: 870984142}
+  - {fileID: 518115694}
+  - {fileID: 1041536491}
+  - {fileID: 1682657520}
+  - {fileID: 1401931058}
+  - {fileID: 1008967364}
+  - {fileID: 1625775185}
+  - {fileID: 416670932}
+  - {fileID: 771250026}
+  ladders:
+  - fromTile: {fileID: 229386548}
+    toTile: {fileID: 213719985}
 --- !u!1 &1515411172
 GameObject:
   m_ObjectHideFlags: 0
@@ -4386,42 +4369,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6adb56b3c85d48a5b467a6cbcae0732, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tiles:
-  - {fileID: 966620018}
-  - {fileID: 1079155346}
-  - {fileID: 461861417}
-  - {fileID: 1310794130}
-  - {fileID: 715513839}
-  - {fileID: 1749683249}
-  - {fileID: 1598185642}
-  - {fileID: 213719985}
-  - {fileID: 1614037813}
-  - {fileID: 1664782506}
-  - {fileID: 589174361}
-  - {fileID: 229386548}
-  - {fileID: 1738314281}
-  - {fileID: 1515411173}
-  - {fileID: 1879819005}
-  - {fileID: 1551291798}
-  - {fileID: 1717265724}
-  - {fileID: 561082466}
-  - {fileID: 1748540715}
-  - {fileID: 1959386063}
-  - {fileID: 781007881}
-  - {fileID: 1694859437}
-  - {fileID: 130246105}
-  - {fileID: 389653740}
-  - {fileID: 228117368}
-  - {fileID: 870984142}
-  - {fileID: 518115694}
-  - {fileID: 1041536491}
-  - {fileID: 1682657520}
-  - {fileID: 1401931058}
-  - {fileID: 1008967364}
-  - {fileID: 1625775185}
-  - {fileID: 416670932}
-  - {fileID: 771250026}
   moveSpeed: 600
+  board: {fileID: 1510263854}
 --- !u!1 &2137445614
 GameObject:
   m_ObjectHideFlags: 0
@@ -4623,42 +4572,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6adb56b3c85d48a5b467a6cbcae0732, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tiles:
-  - {fileID: 966620018}
-  - {fileID: 1079155346}
-  - {fileID: 461861417}
-  - {fileID: 1310794130}
-  - {fileID: 715513839}
-  - {fileID: 1749683249}
-  - {fileID: 1598185642}
-  - {fileID: 213719985}
-  - {fileID: 1614037813}
-  - {fileID: 1664782506}
-  - {fileID: 589174361}
-  - {fileID: 229386548}
-  - {fileID: 1738314281}
-  - {fileID: 1515411173}
-  - {fileID: 1879819005}
-  - {fileID: 1551291798}
-  - {fileID: 1717265724}
-  - {fileID: 561082466}
-  - {fileID: 1748540715}
-  - {fileID: 1959386063}
-  - {fileID: 781007881}
-  - {fileID: 1694859437}
-  - {fileID: 130246105}
-  - {fileID: 389653740}
-  - {fileID: 228117368}
-  - {fileID: 870984142}
-  - {fileID: 518115694}
-  - {fileID: 1041536491}
-  - {fileID: 1682657520}
-  - {fileID: 1401931058}
-  - {fileID: 1008967364}
-  - {fileID: 1625775185}
-  - {fileID: 416670932}
-  - {fileID: 771250026}
   moveSpeed: 600
+  board: {fileID: 1510263854}
 --- !u!1001 &8499874526293525634
 PrefabInstance:
   m_ObjectHideFlags: 0

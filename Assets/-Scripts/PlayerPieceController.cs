@@ -3,9 +3,8 @@ using System.Collections;
 
 public class PlayerPieceController : MonoBehaviour
 {
-    public RectTransform[] tiles; // Привязать все позиции
     public float moveSpeed = 600f;
-
+    public BoardManager board;
     private int currentTileIndex = -1;
     private RectTransform pieceRect;
     public int CurrentTileIndex => currentTileIndex;
@@ -26,12 +25,24 @@ public class PlayerPieceController : MonoBehaviour
         {
             int nextIndex = currentTileIndex + 1;
 
-            if (nextIndex >= tiles.Length)
-                yield break;
+            if (nextIndex >= board.tiles.Count) yield break;
 
-            Vector2 target = tiles[nextIndex].anchoredPosition;
+            Vector2 target = board.tiles[nextIndex].anchoredPosition;
             yield return MoveTo(target);
             currentTileIndex = nextIndex;
+        }
+        foreach (var ladder in board.ladders)
+        {
+            if (board.tiles[currentTileIndex] == ladder.fromTile)
+            {
+                int targetIndex = board.tiles.IndexOf(ladder.toTile);
+                if (targetIndex != -1)
+                {
+                    yield return MoveTo(board.tiles[targetIndex].anchoredPosition);
+                    currentTileIndex = targetIndex;
+                }
+                break;
+            }
         }
     }
 
