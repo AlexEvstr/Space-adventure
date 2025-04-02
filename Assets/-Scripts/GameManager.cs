@@ -16,6 +16,8 @@ public class GameManager : MonoBehaviour
     }
 
     [SerializeField] private GameObject[] maps;
+    [SerializeField] private Sprite[] backgrounds;
+    [SerializeField] private Image _bgImage;
     private GameObject activeMap;
     private BoardManager board;
 
@@ -34,7 +36,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         int mapIndex = PlayerPrefs.GetInt("ChoosenMap", 0);
-
+        _bgImage.sprite = backgrounds[mapIndex];
         // Отключаем все карты
         foreach (var map in maps)
             map.SetActive(false);

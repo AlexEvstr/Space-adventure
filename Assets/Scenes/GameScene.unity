@@ -6310,6 +6310,11 @@ MonoBehaviour:
   - {fileID: 2137445614}
   - {fileID: 1689036391}
   - {fileID: 1590092563}
+  backgrounds:
+  - {fileID: 21300000, guid: 59601b35694674d90bead53de61365ea, type: 3}
+  - {fileID: 21300000, guid: e973e83e982154d1a950e44513736f23, type: 3}
+  - {fileID: 21300000, guid: ebdc726d8cf20438cbeab11301c15992, type: 3}
+  _bgImage: {fileID: 1671047927}
   avatarImage: {fileID: 1235393377}
   nameText: {fileID: 1726985560}
   playerSprites:
@@ -7456,7 +7461,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: ebdc726d8cf20438cbeab11301c15992, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
