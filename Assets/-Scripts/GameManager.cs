@@ -31,10 +31,14 @@ public class GameManager : MonoBehaviour
 
     private int currentPlayerIndex = 0;
     [SerializeField] private Button throwButton;
-    [SerializeField] private Sprite[] pieceSprites;   
+    [SerializeField] private Sprite[] pieceSprites;
+    [SerializeField] private Text _winnerNameText;
+    [SerializeField] private GameObject _winPopup;
+    private WindowManager _windowManager;
 
     private void Start()
     {
+        _windowManager = GetComponent<WindowManager>();
         int mapIndex = PlayerPrefs.GetInt("ChoosenMap", 0);
         _bgImage.sprite = backgrounds[mapIndex];
         // Отключаем все карты
@@ -154,6 +158,8 @@ public class GameManager : MonoBehaviour
             int gamesPlayed = PlayerPrefs.GetInt("GamesPlayed", 0);
             gamesPlayed++;
             PlayerPrefs.SetInt("GamesPlayed", gamesPlayed);
+            _winnerNameText.text = currentPlayer.playerName;
+            _windowManager.OpenWindow(_winPopup);
         }
         else if (victoryMode == 1)
         {
@@ -175,6 +181,8 @@ public class GameManager : MonoBehaviour
                 int gamesPlayed = PlayerPrefs.GetInt("GamesPlayed", 0);
                 gamesPlayed++;
                 PlayerPrefs.SetInt("GamesPlayed", gamesPlayed);
+                _winnerNameText.text = winner.playerName;
+                _windowManager.OpenWindow(_winPopup);
             }
         }
     }
