@@ -82,7 +82,7 @@ public class AudioController : MonoBehaviour
 
     public void PlayClickSound()
     {
-        _soundController.PlayOneShot(_clickSound);
+        _soundController.PlayOneShot(_clickSound, 0.1f);
     }
 
     public void PlayThrowSound()

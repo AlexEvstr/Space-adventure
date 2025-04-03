@@ -155,14 +155,14 @@ public class GameManager : MonoBehaviour
         if (victoryMode == 0)
         {
             // Побеждает первый, кто дошёл
-            Debug.Log($"🏆 Победитель: {currentPlayer.playerName}");
+            //Debug.Log($"🏆 Победитель: {currentPlayer.playerName}");
             // Здесь можешь вызвать окно победы
             int gamesPlayed = PlayerPrefs.GetInt("GamesPlayed", 0);
             gamesPlayed++;
             PlayerPrefs.SetInt("GamesPlayed", gamesPlayed);
             _winnerNameText.text = currentPlayer.playerName;
-            _windowManager.OpenWindow(_winPopup);
             _audioController.MuteMusic();
+            _windowManager.OpenWindow(_winPopup);
             _audioController.PlayWinSound();
         }
         else if (victoryMode == 1)
@@ -179,15 +179,15 @@ public class GameManager : MonoBehaviour
             // Если остался только один, игра заканчивается
             if (notFinished == 1)
             {
-                Debug.Log($"🏁 Игра окончена. Победитель: {winner.playerName}");
+                //Debug.Log($"🏁 Игра окончена. Победитель: {winner.playerName}");
                 // Здесь можешь вызвать экран победы или перейти в меню
 
                 int gamesPlayed = PlayerPrefs.GetInt("GamesPlayed", 0);
                 gamesPlayed++;
                 PlayerPrefs.SetInt("GamesPlayed", gamesPlayed);
                 _winnerNameText.text = winner.playerName;
-                _windowManager.OpenWindow(_winPopup);
                 _audioController.MuteMusic();
+                _windowManager.OpenWindow(_winPopup);
                 _audioController.PlayWinSound();
             }
         }
